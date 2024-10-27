@@ -30,15 +30,15 @@ The application utilizes the OpenWeatherMap API. To access the API, you will nee
    ```bash
    git clone https://github.com/LOKESHREDDY476/weather-monitoring.git.
    cd weather-monitoring
-Install dependencies:
+**Install dependencies:**
 
 
-'''
+```bash
 npm install
-'''
-***Run the application:***
 
-bash
+**Run the application:**
+
+```bash
 
 npm start
 **Usage**
@@ -47,12 +47,13 @@ Alerts will be logged to the console when thresholds are breached.
 Visualizations will be generated based on the daily weather summaries.
 Testing
 The application includes test cases to verify functionality. You can run the tests using:
+```bash
 npm test
 **Test Cases**
-System Setup: Verify the application starts and connects to the OpenWeatherMap API.
-Data Retrieval: Simulate API calls and ensure correct data parsing.
-Temperature Conversion: Validate conversion of temperature values based on user preference.
-Daily Weather Summary: Verify that daily summaries are calculated correctly.
+**System Setup:** Verify the application starts and connects to the OpenWeatherMap API.
+**Data Retrieval:** Simulate API calls and ensure correct data parsing.
+**Temperature Conversion:** Validate conversion of temperature values based on user preference.
+**Daily Weather Summary:** Verify that daily summaries are calculated correctly.
 Alerting Thresholds: Test threshold alerts and ensure they are triggered appropriately.
 **Bonus Features**
 Support for additional weather parameters (e.g., humidity, wind speed).
