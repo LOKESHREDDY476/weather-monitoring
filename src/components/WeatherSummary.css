@@ -1,0 +1,30 @@
+/* WeatherSummary.css */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .summary-card {
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .summary-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .summary-card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+  }
+  
+  .summary-card h3 {
+    margin-bottom: 10px;
+  }
+  

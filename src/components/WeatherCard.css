@@ -1,0 +1,19 @@
+/* WeatherCard.css */
+.card {
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px;
+    color: white; /* Set the text color to white for readability */
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
