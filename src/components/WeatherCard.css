@@ -1,19 +1,22 @@
-/* WeatherCard.css */
 .card {
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px;
-    color: white; /* Set the text color to white for readability */
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .card img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

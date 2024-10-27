@@ -1,30 +1,46 @@
-/* WeatherSummary.css */
 .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row on large screens */
+  gap: 20px;
+  padding: 20px;
+}
+
+.summary-card {
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.summary-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.summary-card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.summary-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #f9f9f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Medium screens (tablets) */
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
   }
-  
-  .summary-card {
-    border-radius: 15px;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) { /* Small screens (mobiles) */
+  .summary-grid {
+    grid-template-columns: 1fr; /* 1 card per row */
   }
-  
-  .summary-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .summary-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 10px;
-  }
-  
-  .summary-card h3 {
-    margin-bottom: 10px;
-  }
-  
+}
