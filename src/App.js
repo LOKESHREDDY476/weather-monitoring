@@ -8,8 +8,10 @@ import axios from "axios";
 const App = () => {
   const [weatherData, setWeatherData] = useState([]);
   const [city, setCity] = useState("Bangalore");
-  const [unit, setUnit] = useState("metric"); // Celsius
+  const [unit, setUnit] = useState("metric");
   const [inputCity, setInputCity] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
+
   const apiKey = "1449885a977b9c873a933564ddf722c6"; // Replace with your OpenWeather API key
 
   const fetchWeather = async () => {
@@ -17,13 +19,15 @@ const App = () => {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`
       );
-      setWeatherData(response.data.list); // Set new weather data
+      setWeatherData(response.data.list);
+      setErrorMessage(""); // Clear error message if data is successfully fetched
     } catch (error) {
       console.error("Error fetching weather data", error);
+      setWeatherData([]); // Clear weather data if there’s an error
+      setErrorMessage("No data found for the entered city. Please check the spelling and try again.");
     }
   };
 
-  // Function to handle search when user clicks button or presses Enter
   const handleSearch = () => {
     if (inputCity.trim() !== "") {
       setCity(inputCity);
@@ -31,8 +35,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchWeather(); // Initial fetch
-    const interval = setInterval(fetchWeather, 300000); // Update every 5 minutes (300,000 ms)
+    fetchWeather();
+    const interval = setInterval(fetchWeather, 300000); // Update every 5 minutes
     return () => clearInterval(interval); // Cleanup on unmount
   }, [city, unit]);
 
@@ -50,10 +54,16 @@ const App = () => {
         />
         <button onClick={handleSearch}>Search</button>
       </div>
-      
-      <WeatherCard data={weatherData} />
-      <WeatherSummary data={weatherData} />
-      <WeatherChart data={weatherData} />
+
+      {errorMessage ? (
+        <p className="error-message">{errorMessage}</p> // Display error message
+      ) : (
+        <>
+          <WeatherCard data={weatherData} />
+          <WeatherSummary data={weatherData} />
+          <WeatherChart data={weatherData} />
+        </>
+      )}
     </div>
   );
 };
